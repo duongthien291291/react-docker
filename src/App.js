@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import RatingV3 from "./components/RatingV3/RatingV3";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <RatingV3 ratingValue={3.5}></RatingV3>
     </div>
   );
 }
