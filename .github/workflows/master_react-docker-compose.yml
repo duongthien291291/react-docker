@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://noderegistry1.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_bd1ed52e0845459f90e141059ce1d91c }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_71b442602f7543bc8e7ed18206034056 }}
+        registry: https://thienreactregistry.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_fdd4c5a5828f483494528792f2af6730 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_22eb27f6d3024457ac873f7b79ea357b }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: noderegistry1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bd1ed52e0845459f90e141059ce1d91c }}/react-docker:${{ github.sha }}
+        tags: thienreactregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_fdd4c5a5828f483494528792f2af6730 }}/react-docker:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'react-docker-compose'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7014a5eb9e0e4324b31c8abe0748e88e }}
-        images: 'noderegistry1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bd1ed52e0845459f90e141059ce1d91c }}/react-docker:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ae67895452e24b448f9ff97903cfc4e1 }}
+        images: 'thienreactregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_fdd4c5a5828f483494528792f2af6730 }}/react-docker:${{ github.sha }}'
